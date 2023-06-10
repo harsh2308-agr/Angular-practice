@@ -1,0 +1,84 @@
+
+<div style="text-align:center">
+    <input [id]="myId" type="text" value="Harsh">
+    <input [disabled]="isDisabled" id="{{myId}}" type="text" value="Harsh">
+    <h2 class="text-success">Angular Practice</h2>
+    <h2 [class]="successClass">Angular Practice</h2>
+    <h2 class="text-special" [class]="successClass">Angular Practice</h2>
+    <h2 [class.text-danger]="hasError">Angular Practice</h2>
+    <div [ngClass]="messageClass">
+        <h2>Welcome to Angular Practice</h2>
+    </div>
+    <h2 [style.color]="'orange'">Tutorial</h2>
+    <h2 [style.color]="!hasError? 'red': 'green'">Conditional operator</h2>
+    <h2 [style.color]="highLightColor">Style Binding</h2>
+    <h2 [ngStyle]="titleStyles">Style Binding</h2>
+</div>
+<!--
+    The flow from class to templete is called data binding and the flow of data from template to
+    class is called event binding.
+-->
+<!--Event Binding-->
+<div style="text-align:left">
+    <button (click)="onClick($event)">Click Here</button>
+    <h2>{{greeting}}</h2>
+    <button (click)="greeting='Hello Harsh'">Greet</button>
+    <input type="text" #myInput/>
+    <button (click)="logMessage(myInput.value)">log Message</button>
+</div>
+
+<!--Two Way Binding  The view and the model should be the same-->
+<div>
+    <input [(ngModel)]="name" type="text">
+    <h2>Name-  {{name}}</h2>
+</div>
+
+<!--Structural directives-->
+<!--
+    ngIF
+    ngFor
+    ngSwitch
+-->
+<div>
+        <h2 *ngIf="false; else elseBlock">
+            Harsh Agrawal
+        </h2>
+
+        <div *ngIf="displayName; then thenBlock; else elseBlock">
+            Hello Angular
+        </div>
+
+        <ng-template #thenBlock>
+            <h3>Angular Development</h3>
+        </ng-template>
+        <ng-template #elseBlock>
+            <h2>
+                Name is Hidden
+            </h2>
+        </ng-template>
+
+    <div [ngSwitch]="color">
+        <div *ngSwitchCase="'red'">You Picked Red color</div>
+        <div *ngSwitchCase="'blue'">You Picked Blue color</div>
+        <div *ngSwitchCase="'green'">You Picked Green color</div>
+        <div *ngSwitchDefault>Pick Default</div>
+    </div>
+    
+    <div *ngFor="let color of colors; index as i">
+        <h3>{{i}} {{color}}</h3>
+    </div>
+    <!--
+        first as f
+        last as l
+        odd as o
+        even as e
+    -returns true/false
+    -->
+</div>
+
+<!--Component Interaction-->
+<div>
+    <h3>Parent Data- {{parentData}}</h3>
+
+    <button (click)="fireEvent()">Send Event</button>
+</div>
