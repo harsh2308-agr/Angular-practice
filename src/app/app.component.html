@@ -7,5 +7,16 @@
   [parentData]="name"></app-test>  -->
 
  <!--Services in Angular-->
- <app-employee-list></app-employee-list> 
- <app-employee-detail></app-employee-detail>
+ <!-- <app-employee-list></app-employee-list> 
+ <app-employee-detail></app-employee-detail> -->
+
+
+<nav>
+  <a routerLink="/departments" routerLinkActive="">Departments</a><br>
+  <a routerLink="/employees" routerLinkActive="">Employees</a>
+</nav>
+
+
+ <!--Routing and Navigation-->
+ <router-outlet></router-outlet>
+ <!--Routed Views go here-->
